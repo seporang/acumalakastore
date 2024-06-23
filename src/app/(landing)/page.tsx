@@ -18,7 +18,7 @@ const fetchMetaData = async () => {
   const title = 'Acumalaka Store';
   const description = 'Top up berbagai game di Acumalaka Store. Kami menyediakan layanan cepat dan terpercaya untuk kebutuhan top up game Anda. Dapatkan top up untuk game favorit Anda dengan harga terbaik.';
   const image = '/kasual/logonew.png';
-  const url = 'https://yourwebsite.com';
+  const url = 'https://acumalakastore.com';
 
   return {
     title,
