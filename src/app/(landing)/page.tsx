@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Rubik } from 'next/font/google';
-import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
 import CardGrid from '@/components/CardGrid';
+import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Popup from '@/components/Popup';
 import Meta from '@/components/MetaTag';

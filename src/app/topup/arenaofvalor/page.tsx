@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { FaInfoCircle, FaUser, FaShoppingCart, FaCreditCard, FaTags, FaWhatsapp } from 'react-icons/fa';
+import Navbar from '@/components/Navbar';
 
 const MobileLegends: React.FC = () => {
   return (
-    <div className="min-h-screen bg-color1 text-white p-4 space-y-4 font-rubik">
+    <div>
+      <Navbar />
+         <div className="min-h-screen bg-color1 text-white p-4 space-y-4 font-rubik">
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
         {/* Card 1 */}
         <div className="w-full md:w-1/4 bg-color2 p-4 rounded-lg shadow-lg">
@@ -106,6 +109,7 @@ const MobileLegends: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
