@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FaHome, FaSearch, FaChartBar, FaCalculator } from 'react-icons/fa';
+import { FaHome, FaSearch, FaChartBar, FaCalculator, FaUser } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   return (
@@ -25,6 +25,10 @@ const Navbar: React.FC = () => {
         <a href="/kalkulator" className="flex items-center space-x-2">
           <FaCalculator />
           <span>Kalkulator</span>
+        </a>
+        <a href="/client-area" className="flex items-center space-x-2 border border-white p-2 rounded">
+          <FaUser />
+          <span>Client Area</span>
         </a>
       </div>
     </nav>
