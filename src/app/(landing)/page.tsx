@@ -48,7 +48,6 @@ const Home: React.FC = () => {
   return (
     <div className={`min-h-screen bg-color1 text-white ${rubik.className}`}>
       <Meta {...metaData} />
-      <Popup />
       <Navbar />
       <div className="border-t border-gray-600 mb-4"></div>
       <Banner />

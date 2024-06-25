@@ -24,7 +24,6 @@ const Popup: React.FC = () => {
               <FaInfoCircle className="text-blue-500 mr-2" size={24} />
               <h2 className="text-lg font-bold">Information</h2>
             </div>
-            <img src="/kasual/bald.gif" alt="Mewing" className="w-full h-auto mb-4" />
             <button
               onClick={closePopup}
               className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center"

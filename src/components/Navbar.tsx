@@ -34,10 +34,6 @@ const Navbar: React.FC = () => {
           <FaCalculator />
           <span>Kalkulator</span>
         </a>
-        <a href="/client-area" className="flex items-center space-x-2 border border-white p-2 rounded">
-          <FaUser />
-          <span>Client Area</span>
-        </a>
       </div>
       <div className="md:hidden flex items-center">
         <button onClick={toggleMenu} className="text-white">
