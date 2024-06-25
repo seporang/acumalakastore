@@ -1,6 +1,8 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { Rubik } from 'next/font/google';
+import cookies from 'react-cookies';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -8,14 +10,50 @@ const rubik = Rubik({
 });
 
 const AdminDashboard: React.FC = () => {
+  const [password, setPassword] = useState('');
+  const [authenticated, setAuthenticated] = useState(cookies.load('authenticated') || false);
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePasswordSubmit = () => {
+    if (password === 'bintangpenyatirdansigmamale') {
+      cookies.save('authenticated', true, { path: '/' });
+      setAuthenticated(true);
+    } else {
+      alert('Kata sandi salah');
+    }
+  };
+
+  if (!authenticated) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-color1 text-white">
+        <div className="bg-color2 p-8 rounded-lg shadow-lg w-96">
+          <h1 className="text-2xl font-semibold mb-4">Masukkan Kata Sandi</h1>
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            className="p-2 mb-4 rounded bg-base text-white w-full"
+            placeholder="Kata sandi"
+          />
+          <button
+            onClick={handlePasswordSubmit}
+            className="p-2 rounded bg-base text-white w-full"
+          >
+            Masuk
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`bg-base min-h-screen text-white ${rubik.className}`}>
       <Navbar />
-
       <div className="container mx-auto p-4">
         {/* Header */}
-
-
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Key Metrics */}
