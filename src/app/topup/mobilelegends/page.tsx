@@ -1,9 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaInfoCircle, FaUser, FaShoppingCart, FaCreditCard, FaTags, FaWhatsapp } from 'react-icons/fa';
 
+interface GameData {
+  id: number;
+  kode: string;
+  nama: string;
+  harga_beli: string;
+  harga_jual: string;
+  status: boolean;
+}
+
 const MobileLegends: React.FC = () => {
+  const [gameData, setGameData] = useState<GameData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/game_mobilelegend')
+      .then(response => response.json())
+      .then(data => {
+        setGameData(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-color1 text-white p-4">Loading...</div>;
+  }
+
   return (
     <div className="min-h-screen bg-color1 text-white p-4 space-y-4 font-rubik">
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
@@ -53,8 +78,15 @@ const MobileLegends: React.FC = () => {
             <FaShoppingCart className="text-white" size={24} />
           </div>
           <div className="border-t border-gray-600 mb-4"></div>
-          <div>
-            {/* Konten untuk pilihan item bisa ditambahkan di sini */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {gameData.map((game) => (
+              <div key={game.id} className="bg-color1 p-4 rounded-lg shadow-md">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-bold">{game.nama}</h3>
+                </div>
+                <p>{`Rp ${game.harga_jual}`}</p>
+              </div>
+            ))}
           </div>
         </div>
 
